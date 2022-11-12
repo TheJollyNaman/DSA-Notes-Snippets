@@ -1,0 +1,24 @@
+struct Node{
+    Node *link[26];
+    bool flag = false;
+    //checks if the reference trie is present or not
+    bool containsKey(char ch){
+        return link[ch - 'a'] != NULL;
+    }
+    //creating reference trie
+    void put(char ch, Node* node){
+        link[ch-'a'] = node;
+    }
+    //to get the next node for traversal
+    Node* get(char ch){
+        return link[ch-'a'];
+    }
+    //setting flag to true at the end of the word
+    void setEnd(){
+        flag = true;
+    }
+    //checking if the word is completed or not
+    bool isEnd(){
+        return flag;
+    }
+};
